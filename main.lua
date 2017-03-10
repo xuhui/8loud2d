@@ -3,6 +3,8 @@ require "runengine"
 require "keyboard"
 require "render"
 
+GAME = require "8loud"
+
 offset = 0
 screenX = 1
 screenY = 1
@@ -26,7 +28,7 @@ function love.load()
 	randomInit()
 	loveInit()
 --	tiles = {}
-	gridInit()
+--	gridInit()
 
 end
 
@@ -43,16 +45,6 @@ function loveInit()
 	kbd = love.keyboard
 	gfx.setLineWidth(1)
 	gfx.setLineStyle("rough")
-end
-
-function gridInit()
-	grid = {}
-	for x = 1, gameW, 1 do
-		grid[x] = {}
-		for y=1, gameH, 1 do
-			grid[x][y] = "o"
-		end
-	end
 end
 
 function randomInit()

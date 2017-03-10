@@ -10,7 +10,7 @@ function love.update(dt)
 		else
 			if next_time > difficulty[difficulty.current] then
 				next_time = 0
-				tick()
+				tick(dt)
 			end
 			next_time = next_time + dt
 		end
@@ -61,8 +61,12 @@ function love.update(dt)
 	elseif runStatus == "lost" then return end
 end
 
-function tick()
-	if #keyBuffer ~= 0 then key = table.remove(keyBuffer, 1) end
+function tick(dt)
+	if #keyBuffer ~= 0 then
+		key = table.remove(keyBuffer, 1)
+	else
+		key = nil
+	end
 
 	if runStatus == "playing" then
 --		pelletTimer = pelletTimer - 1
@@ -75,6 +79,7 @@ function tick()
 --		then tiles.snake1.direction = key end
 
 --		moveSnake(tiles.snake1.direction)
+   		GAME.run(dt, key)
 	end
 end
 
