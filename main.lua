@@ -15,10 +15,10 @@ key = ""           -- Latest pressed key
 latestKey = ""
 gameIsLost = false -- Whether the game has been lost or not
 screen = "start"    -- Game screen
-pelletTimer = 0    -- How long until the next pellet
+-- pelletTimer = 0    -- How long until the next pellet
 snakeLen = 3       -- Default snake length
-pellets = {}       -- List of on-screen pellets
-pelletNum = 0      -- Unique pellet number
+-- pellets = {}       -- List of on-screen pellets
+-- pelletNum = 0      -- Unique pellet number
 menuStage = 0
 --keyWait = 0
 score = 0
@@ -35,7 +35,7 @@ function love.load()
 	-- if love.graphics.setMode(screenW, screenH) == false then love.event.quit() end
 	renderInit()
 	randomInit()
-	pelletTimer = math.random(pelletMin, pelletMax)
+--	pelletTimer = math.random(pelletMin, pelletMax)
 	loveInit()
 	tiles = {}
 	gridInit()
