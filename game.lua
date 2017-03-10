@@ -1,3 +1,5 @@
+next_time = 0
+
 function love.update(dt)
 	key = latestKey
 	if screen == "playing" then
@@ -61,17 +63,17 @@ end
 
 function tick()
 	if #keyBuffer ~= 0 then key = table.remove(keyBuffer, 1) end
-	
+
 	if screen == "playing" then
 		pelletTimer = pelletTimer - 1
 		if pelletTimer == 0 then addPellet() end
-		
+
 		if (key == controls.up and tiles.snake1.direction ~= controls.down)
 		or (key == controls.down and tiles.snake1.direction ~= controls.up)
 		or (key == controls.left and tiles.snake1.direction ~= controls.right)
 		or (key == controls.right and tiles.snake1.direction ~= controls.left)
 		then tiles.snake1.direction = key end
-		
+
 		moveSnake(tiles.snake1.direction)
 	end
 end

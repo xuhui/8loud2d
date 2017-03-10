@@ -17,13 +17,12 @@ gameIsLost = false -- Whether the game has been lost or not
 screen = "start"    -- Game screen
 pelletTimer = 0    -- How long until the next pellet
 snakeLen = 3       -- Default snake length
-keyBuffer = {}     -- Key buffer
 pellets = {}       -- List of on-screen pellets
 pelletNum = 0      -- Unique pellet number
 menuStage = 0
 --keyWait = 0
 score = 0
-next_time = 0
+-- next_time = 0
 
 min_dt = 1/60
 
@@ -72,7 +71,7 @@ function gridInit()
 	for x = 1, gameW, 1 do
 		grid[x] = {}
 		for y=1, gameH, 1 do
-			grid[x][y] = ""
+			grid[x][y] = "o"
 		end
 	end
 end

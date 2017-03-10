@@ -1,14 +1,18 @@
+
+keyBuffer = {}     -- Key buffer
+
+
 function love.keypressed(newKey)
 	if newKey ~= keyBuffer[#keyBuffer] and #keyBuffer < 4 then
 		table.insert(keyBuffer, newKey)
 	else return end
-	
+
 	latestKey = newKey
 	if newKey == "escape" then
 		love.event.quit()
 		return
 	end
-	
+
 	if screen == "start" then
 		if newKey == "1" then difficulty.current = "lazy"
 		elseif newKey == "2" then difficulty.current = "easy"
