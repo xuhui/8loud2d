@@ -1,7 +1,5 @@
-gameW = 15     -- Game width
-gameH = 15     -- Game height
-snakeX = 8     -- Starting snake X position
-snakeY = 8     -- Starting snake Y position
+gameW = 24     -- Game width
+gameH = 5     -- Game height
 gridSize = 30  -- Size of the grid squares
 tileSize = gridSize-2  -- Size of the tiles (snake bits and pellets)
 pelletShape = "circle" -- 'square' or 'circle'

@@ -1,10 +1,10 @@
 
 require "game"
 require "keyboard"
-require "snake"
+-- require "snake"
 require "render"
-require "pellet"
-require "tile"
+-- require "pellet"
+-- require "tile"
 
 score = 0
 -- -15
@@ -40,15 +40,6 @@ function love.load()
 	tiles = {}
 	gridInit()
 
-	for i=1, snakeLen, 1 do
-		print("Putting snake" .. i .. " at position x" .. snakeX .. " y" .. snakeY)
-		tiles["snake"..i] = {color="green",x=snakeX,y=snakeY}
-		grid[snakeX][snakeY] = "snake"..i
-		snakeY = snakeY + 1
-	end
-
-	tiles.snake1.direction = controls.up
-	tiles.snake1.color = {r=100,g=255,b=100}
 end
 
 function renderInit()

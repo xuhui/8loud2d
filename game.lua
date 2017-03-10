@@ -74,7 +74,7 @@ function tick()
 		or (key == controls.right and tiles.snake1.direction ~= controls.left)
 		then tiles.snake1.direction = key end
 
-		moveSnake(tiles.snake1.direction)
+--		moveSnake(tiles.snake1.direction)
 	end
 end
 

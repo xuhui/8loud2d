@@ -33,7 +33,7 @@ function renderBoard()
 	for x,v in pairs(grid) do
 		for y,v in pairs(v) do
 			if v ~= "" then
-				print("Displaying ".."-"..v.."-"..x.."-"..y)
+				-- print("Displaying ".."-"..v.."-"..x.."-"..y)
 				setColor("blue") -- setColor(tiles[v].color)
 				-- if tiles[v].type == "circle" then
 					gfx.circle("fill", screenX+circleOffset+x*gridSize, screenX+circleOffset+y*gridSize, circleSize, tileSize)
