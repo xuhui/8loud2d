@@ -12,8 +12,8 @@ end
 
 function G.run(dt, key)
   print("@" .. (dt or 'nil') .. "-" .. (key or 'nil'))
-  if key == '1' then
-    table.remove(G.grid[1])
+  if key and key >= '1' and key <= '9' then
+    G.grid[1][key - '0'] = ""
   end
 end
 
