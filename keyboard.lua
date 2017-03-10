@@ -13,19 +13,19 @@ function love.keypressed(newKey)
 		return
 	end
 
-	if screen == "start" then
+	if runStatus == "start" then
 		if newKey == "1" then difficulty.current = "lazy"
 		elseif newKey == "2" then difficulty.current = "easy"
 		elseif newKey == "3" then difficulty.current = "medium"
 		elseif newKey == "4" then difficulty.current = "hard"
 		elseif newKey == controls.menu then
 			menuStage = 1
-			screen = "menu"
+			runStatus = "menu"
 			print("Player hit the menu key: "..controls.menu)
 			return
 		else return end
 		print("Player chose difficulty "..difficulty.current)
-		screen = "playing"
+		runStatus = "playing"
 		return
 	end
 end

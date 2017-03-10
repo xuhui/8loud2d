@@ -12,8 +12,8 @@ controls = {up = "up", down="down", left="left", right="right", menu="f1", pause
 function love.conf(t)
 	screenW = gameW * gridSize + 8
 	screenH = gameH * gridSize + 8
-	t.title = "Snake"         -- The title of the window the game is in (string)
-	t.author = "GeekDude"     -- The author of the game (string)
+	t.title = "8LOUD"         -- The title of the window the game is in (string)
+	t.author = "X. H."     -- The author of the game (string)
 	t.window.width = screenW  -- The window width (number)
 	t.window.height = screenH -- The window height (number)
 end

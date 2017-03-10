@@ -2,9 +2,9 @@ next_time = 0
 
 function love.update(dt)
 	key = latestKey
-	if screen == "playing" then
+	if runStatus == "playing" then
 		if kbd.isDown(key) == true and key == controls.pause then
-			screen = "paused"
+			runStatus = "paused"
 			print("Player hit the pause key: "..controls.pause)
 			return
 		else
@@ -17,7 +17,7 @@ function love.update(dt)
 	else
 		if #keyBuffer ~= 0 then key = table.remove(keyBuffer, 1) end
 	end
-	if screen == "menu" then
+	if runStatus == "menu" then
 		if menuStage == 1 then
 			if keyWait(key) == false then return end
 			controls.up = key
@@ -52,19 +52,19 @@ function love.update(dt)
 		end
 		if menuStage == 0 then
 			print("Durl")
-			tiles.snake1.direction = controls.up
-			screen = "start"
+--			tiles.snake1.direction = controls.up
+			runStatus = "start"
 		end
-	elseif screen == "paused" then
+	elseif runStatus == "paused" then
 		if keyWait(controls.pause) == false then return end
-		screen = "playing"
-	elseif screen == "lost" then return end
+		runStatus = "playing"
+	elseif runStatus == "lost" then return end
 end
 
 function tick()
 	if #keyBuffer ~= 0 then key = table.remove(keyBuffer, 1) end
 
-	if screen == "playing" then
+	if runStatus == "playing" then
 --		pelletTimer = pelletTimer - 1
 --		if pelletTimer == 0 then addPellet() end
 
@@ -79,7 +79,7 @@ function tick()
 end
 
 function loseGame()
-	screen = "lost"
+	runStatus = "lost"
 	gameIsLost = true
 	return gameIsLost
 end

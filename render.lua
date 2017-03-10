@@ -1,11 +1,11 @@
 function love.draw()
-	if screen == "playing" then renderBoard()
-	elseif screen == "lost" then renderScore()
-	elseif screen == "start" then
+	if runStatus == "playing" then renderBoard()
+	elseif runStatus == "lost" then renderScore()
+	elseif runStatus == "start" then
 		setColor("white")
 		gfx.printf("Press 1 for lazy,\n2 for easy,\n3 for medium,\n4 for hard, and\n"..controls.menu.." for the keyconfig", 0, screenH2-28, screenW, "center")
-	elseif screen == "menu" then renderMenu()
-	elseif screen == "paused" then renderPaused()
+	elseif runStatus == "menu" then renderMenu()
+	elseif runStatus == "paused" then renderPaused()
 	else renderError() end
 end
 
@@ -19,7 +19,7 @@ function renderPaused()
 end
 
 function renderError()
-	print("screen error: "..screen)
+	print("runStatus error: "..screen)
 	setColor("black")
 	gfx.rectangle("fill", screenW2-75, screenH2-23, 150, 46)
 	setColor("white")
