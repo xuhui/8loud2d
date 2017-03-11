@@ -6,13 +6,14 @@ G.jumper = {x = 6, y = 4, e = 0}
 G.hole = 0 -- if G.hole > 0 then will place a hole in front of the ground, sized with G.hold
 
 function G.run(dt, key)
-  -- print("@" .. (dt or 'nil') .. "-" .. (key or 'nil'))
-  if key and key >= '1' and key <= '9' then
-    G.jumper.e = key - '0'
-  end
 
   local ground_line = #G.grid  -- #self
   hasGround = G.grid[ground_line][G.jumper.x] ~= 0
+
+  if key and key >= '1' and key <= '9' and hasGround and G.jumper.y == ground_line - 1 then
+    G.jumper.e = key - '0'
+  end
+
   if G.jumper.e == 0 and G.jumper.y == ground_line - 1 and hasGround then return end
 
   table.remove(G.grid[ground_line], 1)
@@ -31,6 +32,7 @@ function G.run(dt, key)
     end
     if ground_completeness > 15 then
       G.hole = math.random(1,10)
+      score = score + G.hole
     end
   end
 
@@ -86,16 +88,16 @@ function G.init()
       G.grid[y][x] = y == gameH and 1 or 0
     end
   end
-
+  score = 0
 end
 
 -- init
-for y = 1, gameH do
-  G.grid[y] = {}
-  for x=1, gameW do
-    G.grid[y][x] = y == gameH and 1 or 0
-  end
-end
+-- for y = 1, gameH do
+--   G.grid[y] = {}
+--   for x=1, gameW do
+--     G.grid[y][x] = y == gameH and 1 or 0
+--   end
+-- end
 
 -- return an initialized GAME object
 return G

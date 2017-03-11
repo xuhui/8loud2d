@@ -3,7 +3,7 @@ require "runengine"
 require "keyboard"
 require "render"
 
-GAME = require "8loud"
+GAME = require "thegame"
 
 offset = 0
 screenX = 1

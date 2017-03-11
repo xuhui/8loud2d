@@ -3,7 +3,7 @@ function love.draw()
   elseif runStatus == "lost" then renderScore()
   elseif runStatus == "start" then
     setColor("white")
-    gfx.printf("Press SPACE to start", 0, screenH2-28, screenW, "center")
+    gfx.printf("Press SPACE to start, [1]-[9] to jump, [ESC] to quit ..", 0, screenH2-28, screenW, "center")
   elseif runStatus == "menu" then renderMenu()
   elseif runStatus == "paused" then renderPaused()
   else renderError() end
@@ -54,25 +54,6 @@ function renderScore()
   setColor("white")
   gfx.rectangle("line", screenW2-175, screenH2-23, 350, 46)
   gfx.printf("You got "..score.." point"..(score == 1 and "" or "s") .. "press SPACE to play again", 0, screenH2-14, screenW, "center")
-end
-
-function renderMenu()
-  if menuStage == 1 then
-    setColor("white")
-    centerText("Press the new key for UP\nCurrent key: "..controls.up)
-  elseif menuStage == 2 then
-    setColor("white")
-    centerText("New UP key: "..controls.up.."\nPress the new key for DOWN\nCurrent key: "..controls.down)
-  elseif menuStage == 3 then
-    setColor("white")
-    centerText("New DOWN key: "..controls.down.."\nPress the new key for LEFT\nCurrent key: "..controls.left)
-  elseif menuStage == 4 then
-    setColor("white")
-    centerText("New LEFT key: "..controls.left.."\nPress the new key for RIGHT\nCurrent key: "..controls.right)
-  elseif menuStage == 5 then
-    setColor("white")
-    centerText("New RIGHT key: "..controls.right.."\nDo you want snake wrapping?\nCurrent: "..(wrap and "Y" or "N"))
-  end
 end
 
 function centerText(text, color)

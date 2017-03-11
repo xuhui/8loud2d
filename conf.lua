@@ -6,13 +6,11 @@ tileSize = gridSize-10  -- Size of the tiles (snake bits and pellets)
 -- pelletMin = 20 -- Min ticks between pellets
 -- pelletMax = 40 -- Max ticks between pellets
 wrap = false   -- Snake wraps around screen
-difficulty = {current="medium",lazy=1/5,easy=1/10, medium=1/15, hard=1/20}
-controls = {up = "up", down="down", left="left", right="right", menu="f1", pause="return"}
 
 function love.conf(t)
   screenW = gameW * gridSize + 8
   screenH = gameH * gridSize + 8
-  t.title = "8LOUD"         -- The title of the window the game is in (string)
+  t.title = "SMART GAME"         -- The title of the window the game is in (string)
   t.author = "X. H."     -- The author of the game (string)
   t.window.width = screenW  -- The window width (number)
   t.window.height = screenH -- The window height (number)
