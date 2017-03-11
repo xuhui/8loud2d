@@ -3,7 +3,7 @@ function love.draw()
   elseif runStatus == "lost" then renderScore()
   elseif runStatus == "start" then
     setColor("white")
-    gfx.printf("Press 1 for lazy,\n2 for easy,\n3 for medium,\n4 for hard, and\n"..controls.menu.." for the keyconfig", 0, screenH2-28, screenW, "center")
+    gfx.printf("Press SPACE to start", 0, screenH2-28, screenW, "center")
   elseif runStatus == "menu" then renderMenu()
   elseif runStatus == "paused" then renderPaused()
   else renderError() end
@@ -36,11 +36,11 @@ function renderBoard()
 
       if gr[y][x] ~= 0 then
         -- print("Displaying ".."-"..v.."-"..x.."-"..y)
-        setColor("blue") -- setColor(tiles[v].color)
+        setColor("white") -- setColor(tiles[v].color)
         -- if tiles[v].type == "circle" then
-          gfx.circle("fill", screenX+circleOffset+x*gridSize, screenX+circleOffset+y*gridSize, circleSize, tileSize)
+        --  gfx.circle("fill", screenX+circleOffset+x*gridSize, screenX+circleOffset+y*gridSize, circleSize, tileSize)
         -- else
-        --  gfx.rectangle("fill", screenX+squareOffset+y*gridSize, screenX+squareOffset+x*gridSize, tileSize, tileSize)
+        gfx.rectangle("fill", screenX+squareOffset+x*gridSize, screenX+squareOffset+y*gridSize, tileSize, tileSize)
         -- end
       end
     end
@@ -50,10 +50,10 @@ end
 function renderScore()
   renderBoard()
   setColor("black")
-  gfx.rectangle("fill", screenW2-75, screenH2-23, 150, 46)
+  gfx.rectangle("fill", screenW2-175, screenH2-23, 350, 46)
   setColor("white")
-  gfx.rectangle("line", screenW2-75, screenH2-23, 150, 46)
-  gfx.printf("You lost on "..difficulty.current.."\nwith "..score.." point"..(score == 1 and "" or "s"), 0, screenH2-14, screenW, "center")
+  gfx.rectangle("line", screenW2-175, screenH2-23, 350, 46)
+  gfx.printf("You got "..score.." point"..(score == 1 and "" or "s") .. "press SPACE to play again", 0, screenH2-14, screenW, "center")
 end
 
 function renderMenu()
@@ -103,7 +103,7 @@ function setColor(color)
     elseif color == "cyan"   then gfx.setColor(0  ,255,255,255)
     elseif color == "blue"   then gfx.setColor(0  ,0  ,255,255)
     elseif color == "purple" then gfx.setColor(255,0  ,255,255)
-    elseif color == "white"  then gfx.setColor(255,255,255,255)
+    elseif color == "white"  then gfx.setColor(155,155,155,255)
     elseif color == "black"  then gfx.setColor(0  ,0  ,0  ,255)
     end
   elseif type(color) == "table" then

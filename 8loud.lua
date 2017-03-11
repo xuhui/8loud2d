@@ -2,7 +2,7 @@
 local G = {}
 
 G.grid = {}
-G.jumper = {x = 6, y = 2, e = 0}
+G.jumper = {x = 6, y = 4, e = 0}
 G.hole = 0 -- if G.hole > 0 then will place a hole in front of the ground, sized with G.hold
 
 function G.run(dt, key)
@@ -11,8 +11,10 @@ function G.run(dt, key)
     G.jumper.e = key - '0'
   end
 
-  if G.jumper.e == 0 and G.jumper.y >= 4 then return end
   local ground_line = #G.grid  -- #self
+  hasGround = G.grid[ground_line][G.jumper.x] ~= 0
+  if G.jumper.e == 0 and G.jumper.y == ground_line - 1 and hasGround then return end
+
   table.remove(G.grid[ground_line], 1)
   if G.hole > 0 then
     table.insert(G.grid[ground_line], #G.grid[ground_line] + 1, 0)
@@ -31,6 +33,8 @@ function G.run(dt, key)
       G.hole = math.random(1,10)
     end
   end
+
+
   if G.jumper.e > 0 then
     G.jumper.e = G.jumper.e - 1
     if G.jumper.y > 1 then
@@ -38,8 +42,18 @@ function G.run(dt, key)
     end
   else
     if G.jumper.y < 4 then
+      print("@1")
+      G.jumper.y = G.jumper.y + 1
+    elseif G.jumper.y > 5 then
+      print("@2")
+      G.jumper.y = G.jumper.y + 1
+      runStatus = 'lost'
+    -- elseif G.grid[5][G.jumper.x] < 1 then
+    elseif 0 < 1 then
+    print("a3a " .. G.grid[5][G.jumper.x] .. ' ' .. G.jumper.x ..'*')
       G.jumper.y = G.jumper.y + 1
     end
+    print("aa " .. G.grid[5][G.jumper.x] .. ' ' .. G.jumper.x ..'*'.. G.jumper.y)
   end
 end
 
@@ -60,6 +74,19 @@ function G.render()
     end
   end
   return gr
+end
+
+function G.init()
+
+  G.jumper = {x = 6, y = 4, e = 0}
+  G.hole = 0 -- if G.hole > 0 then will place a hole in front of the ground, sized with G.hold
+  for y = 1, gameH do
+    G.grid[y] = {}
+    for x=1, gameW do
+      G.grid[y][x] = y == gameH and 1 or 0
+    end
+  end
+
 end
 
 -- init

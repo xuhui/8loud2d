@@ -13,8 +13,8 @@ function love.keypressed(newKey)
 		return
 	end
 
-	if runStatus == "start" then
-		if newKey == "1" then difficulty.current = "lazy"
+	if runStatus == "start" or runStatus == "lost" then
+		if newKey == " " then difficulty.current = "lazy"
 		elseif newKey == "2" then difficulty.current = "easy"
 		elseif newKey == "3" then difficulty.current = "medium"
 		elseif newKey == "4" then difficulty.current = "hard"
@@ -25,6 +25,7 @@ function love.keypressed(newKey)
 			return
 		else return end
 		print("Player chose difficulty "..difficulty.current)
+    GAME.init()
 		runStatus = "playing"
 		return
 	end

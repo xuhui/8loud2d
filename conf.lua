@@ -1,7 +1,7 @@
 gameW = 24     -- Game width
 gameH = 5     -- Game height
-gridSize = 30  -- Size of the grid squares
-tileSize = gridSize-2  -- Size of the tiles (snake bits and pellets)
+gridSize = 40  -- Size of the grid squares
+tileSize = gridSize-10  -- Size of the tiles (snake bits and pellets)
 -- pelletShape = "circle" -- 'square' or 'circle'
 -- pelletMin = 20 -- Min ticks between pellets
 -- pelletMax = 40 -- Max ticks between pellets
