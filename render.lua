@@ -31,8 +31,8 @@ function renderBoard()
   setColor("white")
   gr = GAME.render()
   gfx.rectangle("line", screenX+2, screenY+2, screenW-5, screenH-5)
-  for y = 1, gameH do
-    for x = 1, gameW do
+  for y = 1, #gr do
+    for x = 1, #gr[y] do
 
       if gr[y][x] ~= 0 then
         -- print("Displaying ".."-"..v.."-"..x.."-"..y)

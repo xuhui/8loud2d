@@ -1,3 +1,7 @@
+-- 宽度
+local MAX_X = 24     -- Game width
+-- 高度
+local MAX_Y = 5     -- Game height
 -- 小人原始的X坐标，最左边为1，最右边为24
 local ORIGINAL_X = 6
 -- 小人原始的Y左边，最上一行为1，最下一行为5
@@ -39,7 +43,7 @@ function G.run(dt, key)
     -- 原来的洞已经挖好了，那么要挖新的洞吗？通过整个地面的完整度来决策
     -- 开始计算有多少连续的地面
     local groundGompleteness = 0
-    for x=gameW,1,-1 do
+    for x=MAX_X,1,-1 do
       if G.grid[groundLine][x] == 0 then
         break
       end
@@ -70,9 +74,9 @@ end
 -- 画图前调用，吧小人和背景加在一起，生产一个表并返回
 function G.render()
   local gr = {}
-  for y = 1, gameH do
+  for y = 1, MAX_Y do
     gr[y] = {}
-    for x=1, gameW do
+    for x=1, MAX_X do
       if x == G.jumper.x and y == G.jumper.y then
         gr[y][x] = 1
       else
@@ -87,10 +91,10 @@ end
 function G.init()
   G.jumper = {x = ORIGINAL_X, y = ORIGINAL_Y, e = 0}    -- 原始坐标，能量
   G.hole = 0
-  for y = 1, gameH do
+  for y = 1, MAX_Y do
     G.grid[y] = {}
-    for x = 1, gameW do
-      G.grid[y][x] = y == gameH and 1 or 0              -- 如果是最下面的一行的话填1，否则填0
+    for x = 1, MAX_X do
+      G.grid[y][x] = y == MAX_Y and 1 or 0              -- 如果是最下面的一行的话填1，否则填0
     end
   end
   score = 0

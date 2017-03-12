@@ -1,11 +1,13 @@
-gameW = 24     -- Game width
-gameH = 5     -- Game height
 gridSize = 40  -- Size of the grid squares
 tileSize = gridSize-10  -- Size of the tiles (snake bits and pellets)
 -- pelletShape = "circle" -- 'square' or 'circle'
 -- pelletMin = 20 -- Min ticks between pellets
 -- pelletMax = 40 -- Max ticks between pellets
 wrap = false   -- Snake wraps around screen
+
+-- ugly, for compatible, not to define a global
+local gameW = 24
+local gameH = 5
 
 function love.conf(t)
   screenW = gameW * gridSize + 8
