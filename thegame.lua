@@ -66,7 +66,7 @@ function G.run(dt, key)
     -- 没有能量了
     G.jumper.y = G.jumper.y + 1                                     -- 继续往下掉一格
     if G.jumper.y > groundLine then                                 -- 已经掉到洞里面，看不见了吗
-      runStatus = 'lost'                                            -- 结束咯
+      G.runStatus = 'lost'                                            -- 结束咯
     end
   end
 end
@@ -101,4 +101,5 @@ function G.init()
 end
 
 -- 返回上述定义的游戏对象，供X1000或者LOVE2D或者TERMINAL使用，X1000的接口还没做。TERMINAL的版本是最初的原型，不打算改回去了
+G.runStatus = "start"    -- Game screen
 return G

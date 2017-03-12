@@ -36,9 +36,9 @@ function run()
     if key == '\027' then break end
     if key == '0' then
       GAME.init()
-      runStatus='playing'
+      GAME.runStatus='playing'
     end
-    if runStatus ~= 'lost' then
+    if GAME.runStatus ~= 'lost' then
       GAME.run(1, key)
       draw()
     end

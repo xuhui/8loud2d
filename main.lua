@@ -11,7 +11,7 @@ screenY = 1
 key = ""           -- Latest pressed key
 latestKey = ""
 gameIsLost = false -- Whether the game has been lost or not
-runStatus = "start"    -- Game screen
+-- GAME.runStatus = "start"    -- Game screen
 menuStage = 0
 score = 0
 

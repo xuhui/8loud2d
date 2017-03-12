@@ -1,11 +1,11 @@
 function love.draw()
-  if runStatus == "playing" then renderBoard()
-  elseif runStatus == "lost" then renderScore()
-  elseif runStatus == "start" then
+  if GAME.runStatus == "playing" then renderBoard()
+  elseif GAME.runStatus == "lost" then renderScore()
+  elseif GAME.runStatus == "start" then
     setColor("white")
     gfx.printf("Press [0] to start, [1]-[9] to jump, [ESC] to quit ..", 0, screenH2-28, screenW, "center")
-  elseif runStatus == "menu" then renderMenu()
-  elseif runStatus == "paused" then renderPaused()
+  elseif GAME.runStatus == "menu" then renderMenu()
+  elseif GAME.runStatus == "paused" then renderPaused()
   else renderError() end
 end
 
