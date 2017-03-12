@@ -3,7 +3,7 @@ function love.draw()
   elseif runStatus == "lost" then renderScore()
   elseif runStatus == "start" then
     setColor("white")
-    gfx.printf("Press SPACE to start, [1]-[9] to jump, [ESC] to quit ..", 0, screenH2-28, screenW, "center")
+    gfx.printf("Press [0] to start, [1]-[9] to jump, [ESC] to quit ..", 0, screenH2-28, screenW, "center")
   elseif runStatus == "menu" then renderMenu()
   elseif runStatus == "paused" then renderPaused()
   else renderError() end

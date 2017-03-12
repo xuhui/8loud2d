@@ -14,7 +14,7 @@ function love.keypressed(newKey)
   end
 
   if runStatus == "start" or runStatus == "lost" then
-    if newKey == " " then
+    if newKey == "0" or newKey == " " then
       GAME.init()
       runStatus = "playing"
     else return end
