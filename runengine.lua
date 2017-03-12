@@ -34,9 +34,3 @@ function tick(dt)
       GAME.run(dt, key)
   end
 end
-
-function loseGame()
-  GAME.runStatus = "lost"
-  gameIsLost = true
-  return gameIsLost
-end

@@ -8,11 +8,6 @@ GAME = require "thegame"
 offset = 0
 screenX = 1
 screenY = 1
-key = ""           -- Latest pressed key
-latestKey = ""
-gameIsLost = false -- Whether the game has been lost or not
--- GAME.runStatus = "start"    -- Game screen
-menuStage = 0
 score = 0
 
 -- min_dt = 1/60
